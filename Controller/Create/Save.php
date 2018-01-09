@@ -2,8 +2,10 @@
 
 namespace ThinkOpen\Blog\Controller\Create;
 
+
 class Create extends \Magento\Framework\App\Action\Action
 {
+
     protected $_resultPageFactory;
     protected $_pageFactory;
     protected $_postFactory;
@@ -15,6 +17,8 @@ class Create extends \Magento\Framework\App\Action\Action
         $this->_resultPageFactory = $resultPageFactory;
         parent::__construct($context);
     }
+
+
 
     public function execute()
     {
