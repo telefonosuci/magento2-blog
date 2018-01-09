@@ -5,6 +5,8 @@ namespace ThinkOpen\Blog\Controller\Create;
 class Create extends \Magento\Framework\App\Action\Action
 {
     protected $_resultPageFactory;
+    protected $_pageFactory;
+    protected $_postFactory;
 
     public function __construct(
         \Magento\Framework\App\Action\Context $context,
@@ -16,7 +18,11 @@ class Create extends \Magento\Framework\App\Action\Action
 
     public function execute()
     {
+        $postData = $this->getRequest()->getPostValue();
 
+        $post = $this->_postFactory->create();
+        $post->setTitle('Simple Post');
+        ost->setDescription('Post Description');
 /*
 
         $post = $this->_objectManager->create('ThinkOpen\Blog\Model\Post');
