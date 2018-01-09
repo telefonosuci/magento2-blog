@@ -21,8 +21,10 @@ class Create extends \Magento\Framework\App\Action\Action
         $postData = $this->getRequest()->getPostValue();
 
         $post = $this->_postFactory->create();
+
         $post->setTitle('Simple Post');
-        ost->setDescription('Post Description');
+
+        $post->setDescription('Post Description');
 /*
 
         $post = $this->_objectManager->create('ThinkOpen\Blog\Model\Post');
