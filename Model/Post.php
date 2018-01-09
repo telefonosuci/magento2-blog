@@ -1,6 +1,6 @@
 <?php
 
-namespace Mageplaza\HelloWorld\Model;
+namespace ThinkOpen\Blog\Model;
 
 class Post extends \Magento\Framework\Model\AbstractModel implements \Magento\Framework\DataObject\IdentityInterface
 {
