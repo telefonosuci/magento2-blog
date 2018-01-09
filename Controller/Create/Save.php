@@ -16,6 +16,16 @@ class Create extends \Magento\Framework\App\Action\Action
 
     public function execute()
     {
+
+/*
+
+        $post = $this->_objectManager->create('ThinkOpen\Blog\Model\Post');
+        $post->setTitle('Simple Post');
+        $post->setDescription('Post Description');
+        $post->save();
+*/
+
+
         $resultPage = $this->_resultPageFactory->create();
         return $resultPage;
     }
