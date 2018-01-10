@@ -1,6 +1,19 @@
+<?php 
+
+$postCollection = $block->getPostCollection(); 
+
+?>
 
 <h1><?php echo $block->getBlogText(); ?></h1>
 
+
 <br>
+<?php
+foreach ($postCollection as $post) {
+
+    echo "<h2>".$post->getTitle()."</h2>";
+    echo "<br>";
+}
+?>
 
 <a href="/blog/create/create"><button>Create new post</button></a>

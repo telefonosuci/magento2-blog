@@ -22,21 +22,18 @@ class Save extends \Magento\Framework\App\Action\Action
 
     public function execute()
     {
-        $postData = $this->getRequest()->getPostValue();
-
-        $post = $this->_postFactory->create();
-
-        $post->setTitle('Simple Post');
-
-        $post->setDescription('Post Description');
-/*
+        //$postData = $this->getRequest()->getPostValue();
+        
+        $title = $this->getRequest()->getParam('title');
+        $description = $this->getRequest()->getParam('description');
+        $tags = $this->getRequest()->getParam('tags');
 
         $post = $this->_objectManager->create('ThinkOpen\Blog\Model\Post');
-        $post->setTitle('Simple Post');
-        $post->setDescription('Post Description');
-        $post->save();
-*/
 
+        $post->setTitle($title);
+        $post->setDescription($description);
+
+        $post->save();
 
         $resultPage = $this->_resultPageFactory->create();
         return $resultPage;
