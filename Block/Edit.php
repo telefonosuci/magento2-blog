@@ -1,7 +1,7 @@
 <?php
 namespace ThinkOpen\Blog\Block;
 
-class Read extends \Magento\Framework\View\Element\Template
+class Edit extends \Magento\Framework\View\Element\Template
 {
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
@@ -14,11 +14,11 @@ class Read extends \Magento\Framework\View\Element\Template
 
     public function getPostData()
     {
-        $id = $this->getRequest()->getParam('id');
-        
+        $params = $this->getRequest()->getParams();
+        $id = $this->getRequest()->getParam('idpost');
         $post = $this->_postFactory->create();
-        $postData = $post->load($id);
         
+		$postData = $post->load($id);
         return $postData;
     }
 }

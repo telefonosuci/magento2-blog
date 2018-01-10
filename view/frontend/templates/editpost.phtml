@@ -1,0 +1,13 @@
+<?php $postData = $block->getPostData(); ?>
+
+<div class="content">
+    <form action="/blog/post/save/idpost/<?php echo $postData->getId(); ?>">
+        
+        <input type="text" value="<?php echo $postData->getTitle(); ?>">
+        <input type="text" value="<?php echo $postData->getDescription(); ?>">
+            
+        <textarea><?php echo $postData->getBody(); ?></textarea>
+
+        <button type="submit">Salva</button>
+    </form>
+</div>
