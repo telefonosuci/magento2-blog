@@ -1,0 +1,16 @@
+<?php $postData = $block->getPostData(); ?>
+
+<div class="content">
+    
+    <article>
+        
+        <header>
+            <h2><?php echo $postData->getTitle(); ?></h2>
+            <h3><?php echo $postData->getDescription(); ?></h3>
+        </header>
+        
+        <p><?php echo $postData->getBody(); ?></p>
+        
+    </article>
+
+</div>

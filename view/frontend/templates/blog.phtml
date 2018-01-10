@@ -10,8 +10,11 @@ $postCollection = $block->getPostCollection();
 <br>
 <?php
 foreach ($postCollection as $post) {
-
+    echo "<a href=\"/blog/post/read/".$post->getId()."\">";
     echo "<h2>".$post->getTitle()."</h2>";
+    echo "</a>";
+
+    echo "<a href=\"/blog/post/edit/".$post->getId()."\">Edit</a>";
     echo "<br>";
 }
 ?>
