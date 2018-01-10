@@ -10,12 +10,6 @@ class Display extends \Magento\Framework\View\Element\Template
         $this->_postFactory = $postFactory;
         parent::__construct($context);
     }
-
-
-    public function getBlogText()
-    {
-        return __('Here is your blog!');
-    }
     
     public function getPostCollection()
     {

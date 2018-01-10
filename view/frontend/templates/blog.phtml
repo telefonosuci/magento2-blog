@@ -4,10 +4,8 @@ $postCollection = $block->getPostCollection();
 
 ?>
 
-<h1><?php echo $block->getBlogText(); ?></h1>
+<h2>Copany blog</h2>
 
-
-<br>
 <?php
 foreach ($postCollection as $post) {
     echo "<a href=\"/blog/post/read/idpost/".$post->getId()."\">";
