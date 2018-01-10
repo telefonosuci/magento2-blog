@@ -3,7 +3,7 @@
 namespace ThinkOpen\Blog\Controller\Create;
 
 
-class Create extends \Magento\Framework\App\Action\Action
+class Save extends \Magento\Framework\App\Action\Action
 {
 
     protected $_resultPageFactory;
