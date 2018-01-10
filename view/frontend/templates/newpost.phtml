@@ -6,11 +6,13 @@
 
 
 <div>
-    <form action="/blog/create/save">
-    Titolo:<input name="title" type="text"><br/>
-    Descrizione:<input name="description" type="text"><br/>
-    Tags:<input name="tags" type="text"><br/>
-    Testo:<textarea></textarea>
+
+    <form method="post" action="/blog/create/save">
+        
+        <p>Titolo:<input name="title" type="text"></p>
+        <p>Descrizione:<input name="description" type="text"></p>
+        <p>Tags:<input name="tags" type="text"><small>(Inserisci i tag separati da virgole)</small></p>
+        <p>Testo:<textarea name="body" rows="8"></textarea></p>
 
         <input type="submit">
 

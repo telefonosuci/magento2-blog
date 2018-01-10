@@ -14,7 +14,7 @@ class Read extends \Magento\Framework\View\Element\Template
 
     public function getPostData()
     {
-        $id = $this->getRequest()->getParam('id');
+        $id = $this->getRequest()->getParam('idpost');
         
         $post = $this->_postFactory->create();
         $postData = $post->load($id);

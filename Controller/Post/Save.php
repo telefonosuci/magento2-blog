@@ -1,7 +1,6 @@
 <?php
 
-namespace ThinkOpen\Blog\Controller\Create;
-
+namespace ThinkOpen\Blog\Controller\Post;
 
 class Save extends \Magento\Framework\App\Action\Action
 {
@@ -26,6 +25,11 @@ class Save extends \Magento\Framework\App\Action\Action
         $title = $this->getRequest()->getParam('title');
         $description = $this->getRequest()->getParam('description');
         $tags = $this->getRequest()->getParam('tags');
+        $body = $this->getRequest()->getParam('body');
+
+
+        $tagsArray = array_unique(array_map("trim", explode(",", $tags)));
+        $tagsJson = json_encode($tagsArray);
 
         $post = $this->_objectManager->create('ThinkOpen\Blog\Model\Post');
 
@@ -37,7 +41,8 @@ class Save extends \Magento\Framework\App\Action\Action
 
         $post->setTitle($title);
         $post->setDescription($description);
-
+        $post->setTags($tagsJson);
+        
         $post->save();
 
         $resultPage = $this->_resultPageFactory->create();

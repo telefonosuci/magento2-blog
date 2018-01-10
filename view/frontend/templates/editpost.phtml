@@ -1,12 +1,16 @@
-<?php $postData = $block->getPostData(); ?>
+<?php 
+    $postData = $block->getPostData(); 
+    $tags = implode(",", json_decode($postData->getTags()));    
+?>
 
 <div class="content">
-    <form action="/blog/post/save/idpost/<?php echo $postData->getId(); ?>">
+    <form method="post" action="/blog/post/save/idpost/<?php echo $postData->getId(); ?>">
         
-        <input type="text" value="<?php echo $postData->getTitle(); ?>">
-        <input type="text" value="<?php echo $postData->getDescription(); ?>">
+        <p>Titolo:<input type="text" name="title" value="<?php echo $postData->getTitle(); ?>"></p>
+        <p>Descrizione:<input type="text" name="description" value="<?php echo $postData->getDescription(); ?>"></p>
+        <p>Tags:<input type="text" name="tags" value="<?php echo $tags; ?>"><small>(Inserisci i tag separati da virgole)</small></p>
             
-        <textarea><?php echo $postData->getBody(); ?></textarea>
+        <p><textarea name="body" rows=""8><?php echo $postData->getBody(); ?></textarea></p>
 
         <button type="submit">Salva</button>
     </form>
