@@ -2,11 +2,14 @@
 
 <div>
 
-    <form method="post" action="/admin/blog_admin/post/save">
+    <form method="post" enctype="multipart/form-data" action="/admin/blog_admin/post/save">
         
         <p>Titolo:<input name="title" type="text"></p>
         <p>Descrizione:<input name="description" type="text"></p>
         <p>Tags:<input name="tags" type="text"><small>(Inserisci i tag separati da virgole)</small></p>
+        
+        <p><input type="file" name="postimage" accept="image/*"></p>
+        
         <p>Testo:<textarea name="body" rows="8"></textarea></p>
 
         <input type="submit">

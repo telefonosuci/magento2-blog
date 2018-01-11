@@ -1,28 +1,30 @@
-<!--
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
--->      
-
 <?php 
-
-$postCollection = $block->getPostCollection(); 
-
+    $postCollection = $block->getPostCollection(); 
 ?>
 
 <div>
+    
     <p>
         <a href="/admin/blog_admin/post/newpost"><button>Create new post</button></a>
     <p>
+
 </div>
 
 <br>
 
 <div class="grid">
+
 <?php
 foreach ($postCollection as $post) {
+    
     echo "<div class=\"grid-item\">";
     echo "<a href=\"/blog/post/read/idpost/".$post->getId()."\">";
     echo "<h2>".$post->getTitle()."</h2>";
     echo "</a>";
+
+    echo "<p>";
+    echo substr($post->getBody(), 0, 16);
+    echo "</p>";
 
     $editUrl = $block->getEditURL($post->getId());
     

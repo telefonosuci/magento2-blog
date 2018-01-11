@@ -10,7 +10,9 @@ class NewPost extends \Magento\Framework\App\Action\Action
         \Magento\Framework\App\Action\Context $context,
         \Magento\Framework\View\Result\PageFactory $resultPageFactory)
     {
+    
         $this->_resultPageFactory = $resultPageFactory;
+    
         parent::__construct($context);
     }
 

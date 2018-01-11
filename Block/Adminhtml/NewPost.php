@@ -1,4 +1,5 @@
 <?php
+
 namespace ThinkOpen\Blog\Block\Adminhtml;
 
 class NewPost extends \Magento\Framework\View\Element\Template
@@ -7,7 +8,6 @@ class NewPost extends \Magento\Framework\View\Element\Template
     {
         parent::__construct($context);
     }
-
 
     public function getBlogText()
     {

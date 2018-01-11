@@ -1,20 +1,54 @@
 <?php 
-
-$postCollection = $block->getPostCollection(); 
-
+    $postCollection = $block->getPostCollection(); 
 ?>
 
-<h2>Copany blog</h2>
+<div class="grid">
 
-<?php
-foreach ($postCollection as $post) {
-    echo "<a href=\"/blog/post/read/idpost/".$post->getId()."\">";
-    echo "<h2>".$post->getTitle()."</h2>";
-    echo "</a>";
+    <?php
+    foreach ($postCollection as $post) {
+        
+        echo "<div class=\"grid-item\">";
+        echo "<a href=\"/blog/post/read/idpost/".$post->getId()."\">";
+        echo "<h2>".$post->getTitle()."</h2>";
+        echo "</a>";
 
-    echo "<a href=\"/blog/post/edit/idpost/".$post->getId()."\">Edit</a>";
-    echo "<br>";
-}
-?>
+        echo "<p>";
+        echo substr($post->getBody(), 0, 16);
+        echo "</p>";
 
-<a href="/blog/create/create"><button>Create new post</button></a>
+        $editUrl = $block->getEditURL($post->getId());
+        
+        echo "</div>";
+    }
+    ?>
+</div>
+
+
+
+<script>
+    /*
+    requirejs.config({
+        "paths": {
+            "masonry": "ThinkOpen_Blog/js/masonry.pkgd.min"
+        }
+    });
+    */
+    require(['jquery', 'ThinkOpen_Blog/js/masonry.pkgd.min'], function($, Masonry){ 
+        
+        var msnry = new Masonry( '.grid', {
+            // options
+            itemSelector: '.grid-item',
+            columnWidth: 200
+        });
+        /*
+        $('.grid').Masonry({
+            // options
+            itemSelector: '.grid-item',
+            columnWidth: 200
+        });
+        */
+        
+    });
+    
+    
+</script>  
