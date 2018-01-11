@@ -1,0 +1,20 @@
+<?php 
+
+$postCollection = $block->getPostCollection(); 
+
+?>
+
+<h2>Copany blog</h2>
+
+<?php
+foreach ($postCollection as $post) {
+    echo "<a href=\"/blog/post/read/idpost/".$post->getId()."\">";
+    echo "<h2>".$post->getTitle()."</h2>";
+    echo "</a>";
+
+    echo "<a href=\"/blog/post/edit/idpost/".$post->getId()."\">Edit</a>";
+    echo "<br>";
+}
+?>
+
+<a href="/blog/create/create"><button>Create new post</button></a>
