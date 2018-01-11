@@ -1,8 +1,18 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     
+    <head>
+        <title>Greetings</title>
+    </head>
+
     <body>
         <referenceContainer name="content">
+            
+            
             <block class="ThinkOpen\Blog\Block\Adminhtml\Display" name="blog_display" template="ThinkOpen_Blog::blog.phtml" />
+            
+            <!-- 
+            <block class="Magento\Backend\Block\Template" name="blog_display" template="ThinkOpen_Blog::simple.phtml" />
+            -->
             <!--
             <uiComponent name="thinkopen_blog_post_listing"/>
             -->
