@@ -1,0 +1,25 @@
+
+<style>
+   label{
+       width: 200px;
+   }
+</style>
+
+<?php 
+    $postData = $block->getPostData(); 
+    $tags = implode(",", json_decode($postData->getTags()));    
+?>
+
+<div class="content">
+    <form method="post" action="/blog/post/save/idpost/<?php echo $postData->getId(); ?>">
+        
+        <p><label>Titolo:</label><input type="text" name="title" value="<?php echo $postData->getTitle(); ?>"></p>
+        <p><label>Descrizione:</label><input type="text" name="description" value="<?php echo $postData->getDescription(); ?>"></p>
+
+        <p><label>Tags:</label><input type="text" name="tags" value="<?php echo $tags; ?>"><small>(Inserisci i tag separati da virgole)</small></p>
+            
+        <p><textarea name="body" rows="8"><?php echo $postData->getBody(); ?></textarea></p>
+
+        <button type="submit">Salva</button>
+    </form>
+</div>

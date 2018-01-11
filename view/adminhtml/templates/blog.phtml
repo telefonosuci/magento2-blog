@@ -10,7 +10,7 @@ $postCollection = $block->getPostCollection();
 
 <div>
     <p>
-        <a href="/blog/create/create"><button>Create new post</button></a>
+        <a href="/admin/blog_admin/post/newpost"><button>Create new post</button></a>
     <p>
 </div>
 
@@ -26,10 +26,10 @@ foreach ($postCollection as $post) {
 
     $editUrl = $block->getEditURL($post->getId());
     
-    echo "<a href=\"/blog/post/edit/idpost/".$post->getId()."\">Edit</a>";
+    //echo "<a href=\"/blog/post/edit/idpost/".$post->getId()."\">Edit</a>";
     echo "<a href=\"/admin/blog_admin/post/edit/idpost/".$post->getId()."\">Edit</a>";
     
-    echo "<a href=\"".$editUrl."\">Edit</a>";
+    //echo "<a href=\"".$editUrl."\">Edit</a>";
     
     echo "</div>";
 }
