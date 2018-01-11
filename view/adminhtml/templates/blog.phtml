@@ -24,7 +24,13 @@ foreach ($postCollection as $post) {
     echo "<h2>".$post->getTitle()."</h2>";
     echo "</a>";
 
+    $editUrl = $block->getEditURL($post->getId());
+    
     echo "<a href=\"/blog/post/edit/idpost/".$post->getId()."\">Edit</a>";
+    echo "<a href=\"/admin/blog_admin/post/edit/idpost/".$post->getId()."\">Edit</a>";
+    
+    echo "<a href=\"".$editUrl."\">Edit</a>";
+    
     echo "</div>";
 }
 ?>
