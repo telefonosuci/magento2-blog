@@ -1,28 +1,29 @@
 <?php 
     $postCollection = $block->getPostCollection(); 
 ?>
+<div class="content">
+    <div class="grid">
 
-<div class="grid">
+        <?php
+        foreach ($postCollection as $post) {
+            
+            echo "<div class=\"grid-item\">";
+            echo " <img src=\"".$post->getImage()."\" height=\"128\" width=\"128\"> ";
+            echo "<a href=\"/blog/post/read/idpost/".$post->getId()."\">";
+            echo "<h2>".$post->getTitle()."</h2>";
+            echo "</a>";
 
-    <?php
-    foreach ($postCollection as $post) {
-        
-        echo "<div class=\"grid-item\">";
-        echo "<a href=\"/blog/post/read/idpost/".$post->getId()."\">";
-        echo "<h2>".$post->getTitle()."</h2>";
-        echo "</a>";
+            echo "<p>";
+            echo substr($post->getBody(), 0, 64);
+            echo "</p>";
 
-        echo "<p>";
-        echo substr($post->getBody(), 0, 16);
-        echo "</p>";
-
-        $editUrl = $block->getEditURL($post->getId());
-        
-        echo "</div>";
-    }
-    ?>
+            $editUrl = $block->getEditURL($post->getId());
+            
+            echo "</div>";
+        }
+        ?>
+    </div>
 </div>
-
 
 
 <script>

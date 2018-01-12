@@ -57,7 +57,7 @@ class Save extends \Magento\Framework\App\Action\Action
             $post = $this->_objectManager->create('ThinkOpen\Blog\Model\Post');
         }
 
-        $post->setImage($path);
+        $post->setImage("/pub/media/".$uploadResult['file']);
 
         $post->setTitle($title);
         $post->setDescription($description);
