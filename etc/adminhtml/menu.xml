@@ -5,7 +5,9 @@
         <add id="ThinkOpen_Blog::blog" title="Blog" module="ThinkOpen_Blog" sortOrder="1" resource="Magento_Backend::content"/>
 
         <add id="ThinkOpen_Blog::manage_post" title="Manage Posts" module="ThinkOpen_Blog" action="blog_admin/post/index" resource="Magento_Backend::content" parent="ThinkOpen_Blog::blog"/>
-        
+
+        <add id="ThinkOpen_Blog::manage_post_grid" title="Manage Posts Grid" module="ThinkOpen_Blog" action="blog_admin/post/grid" resource="Magento_Backend::content" parent="ThinkOpen_Blog::blog"/>
+
     </menu>
 </config>
 

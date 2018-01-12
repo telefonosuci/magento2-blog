@@ -8,6 +8,8 @@
             <h2><?php echo $postData->getTitle(); ?></h2>
             <h3><?php echo $postData->getDescription(); ?></h3>
         </header>
+
+        <img src="<?php $postData->getImage() ?>" height="256" width="256">
         
         <p><?php echo $postData->getBody(); ?></p>
         

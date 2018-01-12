@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Webkul\Hello\Model\ResourceModel\Employee\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">wk_emp_data</argument>
+            <argument name="resourceModel" xsi:type="string">ThinkOpen\Blog\Model\ResourceModel\Post</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="entity_listing_data_source1" xsi:type="string">ThinkOpen\Blog\Model\ResourceModel\Post\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
