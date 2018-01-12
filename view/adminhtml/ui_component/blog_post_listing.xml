@@ -2,14 +2,14 @@
 <listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Ui/etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">webkul_emp_data.entity_listing_data_source1</item>
-            <item name="deps" xsi:type="string">webkul_emp_data.entity_listing_data_source1</item>
+            <item name="provider" xsi:type="string">blog_post_listing.blog_post_listing_datasource</item>
+            <item name="deps" xsi:type="string">blog_post_listing.blog_post_listing_datasource</item>
         </item>
-        <item name="spinner" xsi:type="string">wk_emp_data_columns</item>
+        <item name="spinner" xsi:type="string">blog_post_columns</item>
         <item name="buttons" xsi:type="array">
             <item name="add" xsi:type="array">
                 <item name="name" xsi:type="string">add</item>
-                <item name="label" xsi:type="string" translate="true">Add New Entity</item>
+                <item name="label" xsi:type="string" translate="true">Create new post</item>
                 <item name="class" xsi:type="string">primary</item>
                 <item name="url" xsi:type="string">*/*/new</item>
             </item>
@@ -19,8 +19,8 @@
     <dataSource name="blog_post_listing_datasource">
         
         <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
-            <argument name="name" xsi:type="string">entity_listing_data_source1</argument>
+            <argument name="class" xsi:type="string">Magento\Customer\Ui\Component\DataProvider</argument>
+            <argument name="name" xsi:type="string">blog_post_listing_datasource</argument>
             <argument name="primaryFieldName" xsi:type="string">id</argument>
             <argument name="requestFieldName" xsi:type="string">id</argument>
             <argument name="data" xsi:type="array">
@@ -61,7 +61,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="columnsData" xsi:type="array">
-                        <item name="provider" xsi:type="string">webkul_emp_data.webkul_emp_data.wk_emp_data_columns</item>
+                        <item name="provider" xsi:type="string">blog_post_listing.blog_post_listing_datasource.data_columns</item>
                     </item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/controls/columns</item>
                     <item name="displayArea" xsi:type="string">dataGridActions</item>
@@ -74,13 +74,13 @@
                     <item name="displayArea" xsi:type="string">dataGridFilters</item>
                     <item name="dataScope" xsi:type="string">filters</item>
                     <item name="storageConfig" xsi:type="array">
-                        <item name="provider" xsi:type="string">webkul_emp_data.webkul_emp_data.listing_top.bookmarks</item>
+                        <item name="provider" xsi:type="string">blog_post_listing.blog_post_listing_datasource.listing_top.bookmarks</item>
                         <item name="namespace" xsi:type="string">current.filters</item>
                     </item>
                     <item name="childDefaults" xsi:type="array">
-                        <item name="provider" xsi:type="string">webkul_emp_data.webkul_emp_data.listing_top.listing_filters</item>
+                        <item name="provider" xsi:type="string">blog_post_listing.blog_post_listing_datasource.listing_top.listing_filters</item>
                         <item name="imports" xsi:type="array">
-                            <item name="visible" xsi:type="string">webkul_emp_data.webkul_emp_data.listing_top.bookmarks:current.columns.${ $.index }.visible</item>
+                            <item name="visible" xsi:type="string">blog_post_listing.blog_post_listing_datasource.listing_top.bookmarks:current.columns.${ $.index }.visible</item>
                         </item>
                     </item>
                 </item>
@@ -91,7 +91,7 @@
                         <item name="dataScope" xsi:type="string">id</item>
                         <item name="label" xsi:type="string" translate="true">ID</item>
                         <item name="childDefaults" xsi:type="array">
-                            <item name="provider" xsi:type="string">webkul_emp_data.webkul_emp_data.listing_top.listing_filters</item>
+                            <item name="provider" xsi:type="string">blog_post_listing.blog_post_listing_datasource.listing_top.listing_filters</item>
                         </item>
                     </item>
                 </argument>
@@ -134,7 +134,7 @@
          <massaction name="listing_massaction">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="selectProvider" xsi:type="string">webkul_emp_data.webkul_emp_data.wk_emp_data_columns.ids</item>
+                    <item name="selectProvider" xsi:type="string">blog_post_listing.blog_post_listing_datasource.data_columns.ids</item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>
                     <item name="indexField" xsi:type="string">id</item>
                 </item>
@@ -177,10 +177,10 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="storageConfig" xsi:type="array">
-                        <item name="provider" xsi:type="string">webkul_emp_data.webkul_emp_data.listing_top.bookmarks</item>
+                        <item name="provider" xsi:type="string">blog_post_listing.blog_post_listing_datasource.listing_top.bookmarks</item>
                         <item name="namespace" xsi:type="string">current.paging</item>
                     </item>
-                    <item name="selectProvider" xsi:type="string">webkul_emp_data.webkul_emp_data.wk_emp_data_columns.ids</item>
+                    <item name="selectProvider" xsi:type="string">blog_post_listing.blog_post_listing_datasource.data_columns.ids</item>
                     <item name="displayArea" xsi:type="string">bottom</item>
                 </item>
             </argument>
@@ -190,12 +190,12 @@
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                 <item name="storageConfig" xsi:type="array">
-                    <item name="provider" xsi:type="string">webkul_emp_data.webkul_emp_data.listing_top.bookmarks</item>
+                    <item name="provider" xsi:type="string">blog_post_listing.blog_post_listing_datasource.listing_top.bookmarks</item>
                     <item name="namespace" xsi:type="string">current</item>
                 </item>
                 <item name="childDefaults" xsi:type="array">
                     <item name="fieldAction" xsi:type="array">
-                        <item name="provider" xsi:type="string">webkul_emp_data.webkul_emp_data.wk_emp_data_columns.actions</item>
+                        <item name="provider" xsi:type="string">blog_post_listing.blog_post_listing_datasource.data_columns.actions</item>
                         <item name="target" xsi:type="string">applyAction</item>
                         <item name="params" xsi:type="array">
                             <item name="0" xsi:type="string">edit</item>
@@ -203,7 +203,7 @@
                         </item>
                     </item>
                     <item name="storageConfig" xsi:type="array">
-                        <item name="provider" xsi:type="string">webkul_emp_data.webkul_emp_data.listing_top.bookmarks</item>
+                        <item name="provider" xsi:type="string">blog_post_listing.blog_post_listing_datasource.listing_top.bookmarks</item>
                         <item name="root" xsi:type="string">columns.${ $.index }</item>
                         <item name="namespace" xsi:type="string">current.${ $.storageConfig.root}</item>
                     </item>

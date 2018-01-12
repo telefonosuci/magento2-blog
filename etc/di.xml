@@ -1,16 +1,39 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <virtualType name="Webkul\Hello\Model\ResourceModel\Employee\Grid\Collection">
+    
+    <virtualType name="ThinkOpen\Blog\Model\ResourceModel\Post\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+
         <arguments>
-            <argument name="mainTable" xsi:type="string">wk_emp_data</argument>
+            <argument name="mainTable" xsi:type="string">thinkopen_blog_post</argument>
             <argument name="resourceModel" xsi:type="string">ThinkOpen\Blog\Model\ResourceModel\Post</argument>
         </arguments>
+        
     </virtualType>
+
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="entity_listing_data_source1" xsi:type="string">ThinkOpen\Blog\Model\ResourceModel\Post\Collection</item>
+                <item name="blog_post_listing_datasource" xsi:type="string">ThinkOpen\Blog\Model\ResourceModel\Post\Collection</item>
             </argument>
         </arguments>
     </type>
+
+    <virtualType name="BlogGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    
+    <virtualType name="PostGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">ThinkOpen\Blog\Model\ResourceModel\Post\Collection</argument>
+            
+        </arguments>
+    </virtualType>
+
+    
+
 </config>
