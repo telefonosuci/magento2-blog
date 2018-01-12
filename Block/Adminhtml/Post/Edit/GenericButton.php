@@ -44,7 +44,7 @@ class GenericButton
     public function getId()
     {
         $post = $this->registry->registry('post');
-        return $contact ? $post->getId() : null;
+        return $post ? $post->getId() : null;
     }
 
     /**
