@@ -4,11 +4,11 @@
     <argument name="data" xsi:type="array">
         
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">blog_post_form.contacts_form_data_source</item>
-            <item name="deps" xsi:type="string">blog_post_form.contacts_form_data_source</item>
+            <item name="provider" xsi:type="string">blog_post_form.blog_post_form_data_source</item>
+            <item name="deps" xsi:type="string">blog_post_form.blog_post_form_data_source</item>
         </item>
 
-        <item name="label" xsi:type="string" translate="true">Sample Form</item>
+        <item name="label" xsi:type="string" translate="true">Post Form</item>
         
         <item name="layout" xsi:type="array">
             <item name="type" xsi:type="string">tabs</item>
@@ -40,12 +40,12 @@
     <fieldset name="post">
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
-                <item name="label" xsi:type="string" translate="true">Sample Fieldset</item>
+                <item name="label" xsi:type="string" translate="true">Post Fieldset</item>
             </item>
         </argument>
 
         <!-- This field represents form id and is hidden -->
-        <field name="pfay_contact_id">
+        <field name="post_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="visible" xsi:type="boolean">false</item>
@@ -57,10 +57,10 @@
         </field>
 
         <!-- This field has data type 'text' and standard 'input' form element and looks like input -->
-        <field name="name">
+        <field name="title">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="label" xsi:type="string">Name</item>
+                    <item name="label" xsi:type="string">Title</item>
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="formElement" xsi:type="string">input</item>
@@ -79,6 +79,49 @@
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="formElement" xsi:type="string">input</item>
                     <item name="source" xsi:type="string">post</item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="tags">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Tags</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">post</item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="image">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">string</item>
+                    <item name="source" xsi:type="string">post</item>
+                    <item name="label" xsi:type="string" translate="true">Image</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="formElement" xsi:type="string">fileUploader</item>
+                    <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
+                    <item name="previewTmpl" xsi:type="string">ThinkOpen_Blog/image-preview</item>
+                    <item name="required" xsi:type="boolean">false</item>
+                    <item name="uploaderConfig" xsi:type="array">
+                        <item name="url" xsi:type="url" path="ThinkOpen_Blog/post_image/upload"/>
+                    </item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="body">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Body</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="formElement" xsi:type="string">wysiwyg</item>
+                    <item name="source" xsi:type="string">post</item>
+                    <item name="dataScope" xsi:type="string">body</item>
+                    <item name="wysiwyg" xsi:type="boolean">true</item>
                 </item>
             </argument>
         </field>
