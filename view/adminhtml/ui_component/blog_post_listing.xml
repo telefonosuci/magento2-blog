@@ -139,13 +139,13 @@
         </filters>
 
 
-         <massaction name="listing_massaction">
-            
+        <massaction name="listing_massaction">
+      
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="selectProvider" xsi:type="string">blog_post_listing.blog_post_listing_datasource.data_columns.ids</item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>
-                    <item name="indexField" xsi:type="string">id</item>
+                    <item name="indexField" xsi:type="string">ids</item>
                 </item>
             </argument>
 
@@ -188,6 +188,7 @@
                     </item>
                 </argument>
             </action>
+
         </massaction>
 
         <paging name="listing_paging">
@@ -202,6 +203,7 @@
                 </item>
             </argument>
         </paging>
+    
     </container>
 
 
@@ -296,8 +298,8 @@
             </argument>
         </column>
 
-        <!--
-        <actionsColumn name="actions" class="Webkul\Hello\Ui\Component\Listing\Column\EmployeeActions">
+        
+        <actionsColumn name="actions" class="ThinkOpen\Blog\Ui\Component\Listing\Column\PostActions">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="indexField" xsi:type="string">id</item>
@@ -306,6 +308,6 @@
             </argument>
         </actionsColumn>
 
-        -->
+        
     </columns> 
 </listing>
