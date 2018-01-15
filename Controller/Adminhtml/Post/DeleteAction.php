@@ -22,7 +22,7 @@ class DeleteAction extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-        $id = $this->getRequest()->getParam('post_id');
+        $id = $this->getRequest()->getParam('id');
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($id) {
@@ -34,7 +34,7 @@ class DeleteAction extends \Magento\Backend\App\Action
                 return $resultRedirect->setPath('*/*/');
             } catch (\Exception $e) {
                 $this->messageManager->addError($e->getMessage());
-                return $resultRedirect->setPath('*/*/edit', ['post_id' => $id]);
+                return $resultRedirect->setPath('*/*/edit', ['id' => $id]);
             }
         }
         $this->messageManager->addError(__('We can\'t find a post to delete.'));

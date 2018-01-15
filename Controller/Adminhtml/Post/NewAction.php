@@ -1,6 +1,6 @@
 <?php
 
-namespace ThinkOpen\Blog\Controller\Adminhtml\post;
+namespace ThinkOpen\Blog\Controller\Adminhtml\Post;
 use Magento\Backend\App\Action;
 use ThinkOpen\Blog\Model\Post as Post;
 
@@ -19,8 +19,13 @@ class NewAction extends \Magento\Backend\App\Action
 
         $contactDatas = $this->getRequest()->getParam('post');
         if(is_array($contactDatas)) {
-            $contact = $this->_objectManager->create(Post::class);
-            $contact->setData($contactDatas)->save();
+            
+            $post = $this->_objectManager->create(Post::class);
+            
+            $creationDate = date("Y-m-d H:i:s");
+            $post->setCreationDate($creationDate);
+            $post->setData($contactDatas)->save();
+
             $resultRedirect = $this->resultRedirectFactory->create();
             return $resultRedirect->setPath('*/*/grid');
         }
