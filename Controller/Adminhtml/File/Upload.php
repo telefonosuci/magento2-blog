@@ -1,6 +1,7 @@
 <?php
  
 namespace ThinkOpen\Blog\Controller\Adminhtml\File;
+use Magento\Framework\App\Filesystem\DirectoryList;
  
 class Upload extends \Magento\Framework\App\Action\Action
 {
@@ -12,7 +13,7 @@ class Upload extends \Magento\Framework\App\Action\Action
         \Magento\Framework\Filesystem $fileSystem,
         \Magento\MediaStorage\Model\File\UploaderFactory $uploaderFactory
     ) {
-        $this->_filesystem = $fileSystem;
+        $this->_fileSystem = $fileSystem;
         $this->_uploaderFactory = $uploaderFactory;
         parent::__construct($context);
     }
@@ -48,19 +49,49 @@ class Upload extends \Magento\Framework\App\Action\Action
 
 
         $destinationPath = $this->getDestinationPath();
+        try {
 
-        $uploader = $this->_uploaderFactory->create(['fileId' => 'image'])
-        ->setAllowedExtensions(['jpg', 'jpeg'])
-        ->setAllowCreateFolders(true)
-        ->setAllowedExtensions(['jpg', 'jpeg']);
+            $uploader = $this->_uploaderFactory->create(['fileId' => 'image'])
+            ->setAllowedExtensions(['jpg', 'jpeg'])
+            ->setAllowCreateFolders(true)
+            ->addValidateCallback('validate', $this, 'validateFile');
 
-        $uploadResult = $uploader->save($destinationPath);
+            $uploadResult = $uploader->save($destinationPath);
 
-        return "/pub/media/".$uploadResult['file'];
+            if (!$uploadResult) {
+                throw new LocalizedException(
+                    __('File cannot be saved to path: $1', $destinationPath)
+                );
+            }else{
+            
+                return "/pub/media/".$uploadResult['file'];
+            
+            }
+            
+        }catch (Exception $e){
+
+
+            $this->messageManager->addError(
+                __($e->getMessage())
+            );
+        
+        }
+
         //$post->setImage("/pub/media/".$uploadResult['file']);
 
 
         
+    }
+
+    public function getDestinationPath()
+    {
+        return $this->_fileSystem->getDirectoryRead(DirectoryList::MEDIA)->getAbsolutePath('/images');
+    }
+
+    public function validateFile($filePath)
+    {
+        // @todo
+        // your custom validation code here
     }
    
 }

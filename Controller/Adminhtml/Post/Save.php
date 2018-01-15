@@ -44,8 +44,7 @@ class Save extends \Magento\Framework\App\Action\Action
 
         $uploader = $this->_uploaderFactory->create(['fileId' => 'postimage'])
         ->setAllowedExtensions(['jpg', 'jpeg'])
-        ->setAllowCreateFolders(true)
-        ->setAllowedExtensions(['jpg', 'jpeg']);
+        ->setAllowCreateFolders(true);
 
         $uploadResult = $uploader->save($destinationPath);
 
