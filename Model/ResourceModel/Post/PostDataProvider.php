@@ -41,7 +41,7 @@ class PostDataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         /** @var Post $post */
         foreach ($items as $post) {
             // our fieldset is called "contact" or this table so that magento can find its datas:
-            $this->loadedData[$contact->getId()]['post'] = $contact->getData();
+            $this->loadedData[$post->getId()]['post'] = $post->getData();
         }
 
         return $this->loadedData;

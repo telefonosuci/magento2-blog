@@ -22,8 +22,6 @@ class NewAction extends \Magento\Backend\App\Action
     }
     
     /**
-     * Edit A Contact Page
-     *
      * @return \Magento\Backend\Model\View\Result\Page|\Magento\Backend\Model\View\Result\Redirect
      * @SuppressWarnings(PHPMD.NPathComplexity)
      */
@@ -35,8 +33,13 @@ class NewAction extends \Magento\Backend\App\Action
         $postData = $this->getRequest()->getParam('post');
         
         if(is_array($postData)) {
+
+            if($this->getRequest()->getParam('id')){
+                $post = $this->_objectManager->create(Post::class)->load($this->getRequest()->getParam('id'));
+            }else{
+                $post = $this->_objectManager->create(Post::class);
+            }
             
-            $post = $this->_objectManager->create(Post::class);
             $post->setData($postData);
 
             $creationDate = date("Y-m-d H:i:s");
@@ -56,6 +59,7 @@ class NewAction extends \Magento\Backend\App\Action
             $resultRedirect = $this->resultRedirectFactory->create();
             return $resultRedirect->setPath('*/*/grid');
         }
+
     }
 
     public function validateFile($filePath)
