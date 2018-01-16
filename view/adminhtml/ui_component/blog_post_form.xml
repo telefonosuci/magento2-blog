@@ -118,7 +118,7 @@
             </argument>
         </field>
         
-        <field name="status">
+        <field name="isactive">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     
@@ -139,7 +139,7 @@
             </argument>
         </field>
         
-        <field name="postimage">
+        <field name="image">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="label" xsi:type="string" translate="true">Post Image</item>

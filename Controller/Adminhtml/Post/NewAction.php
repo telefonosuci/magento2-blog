@@ -54,7 +54,7 @@ class NewAction extends \Magento\Backend\App\Action
             
             try{
 
-                $uploader = $this->_uploaderFactory->create(['fileId' => 'post[postimage]'])
+                $uploader = $this->_uploaderFactory->create(['fileId' => 'post[image]'])
                 ->setAllowedExtensions(['jpg', 'jpeg'])
                 ->setAllowCreateFolders(true);
 
