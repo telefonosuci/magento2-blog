@@ -33,27 +33,40 @@ class NewAction extends \Magento\Backend\App\Action
         $postData = $this->getRequest()->getParam('post');
         
         if(is_array($postData)) {
+            
+            $id = $this->getRequest()->getParam('id');
 
-            if($this->getRequest()->getParam('id')){
-                $post = $this->_objectManager->create(Post::class)->load($this->getRequest()->getParam('id'));
+            if($id){
+                $post = $this->_objectManager->create(Post::class)->load($id);
             }else{
                 $post = $this->_objectManager->create(Post::class);
             }
             
             $post->setData($postData);
+            
+            if(!$id){
+                $creationDate = date("Y-m-d H:i:s");
+                $post->setCreationdate($creationDate);
+            }
 
-            $creationDate = date("Y-m-d H:i:s");
-            $post->setCreationdate($creationDate);
+            $lasEditDate = date("Y-m-d H:i:s");
+            $post->setLasteditdate($lasEditDate);
+            
+            try{
 
-            $uploader = $this->_uploaderFactory->create(['fileId' => 'post[postimage]'])
-            ->setAllowedExtensions(['jpg', 'jpeg'])
-            ->setAllowCreateFolders(true);
+                $uploader = $this->_uploaderFactory->create(['fileId' => 'post[postimage]'])
+                ->setAllowedExtensions(['jpg', 'jpeg'])
+                ->setAllowCreateFolders(true);
 
-            $destinationPath = $this->getDestinationPath();
-            $uploadResult = $uploader->save($destinationPath);
+                $destinationPath = $this->getDestinationPath();
+                $uploadResult = $uploader->save($destinationPath);
 
-            $post->setImage("/pub/media/".$uploadResult['file']);
+                $post->setImage("/pub/media/".$uploadResult['file']);
 
+            }catch(\Exception $e){
+                
+            }
+            
             $post->save();
 
             $resultRedirect = $this->resultRedirectFactory->create();
