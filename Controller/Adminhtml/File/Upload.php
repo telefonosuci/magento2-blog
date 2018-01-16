@@ -10,7 +10,7 @@ class Upload extends \Magento\Framework\App\Action\Action
     protected $_uploaderFactory;
 
     public function __construct(
-        \Magento\Framework\App\Action\Context $context,
+        \Magento\Backend\App\Action\Context $context,
         \Magento\Framework\Filesystem $fileSystem,
         \Magento\MediaStorage\Model\File\UploaderFactory $uploaderFactory
     ) {
@@ -52,7 +52,9 @@ class Upload extends \Magento\Framework\App\Action\Action
         $destinationPath = $this->getDestinationPath();
         try {
 
-            $uploader = $this->_uploaderFactory->create(['fileId' => 'postimage']);
+
+            $file = $_FILES['bar'];
+            $uploader = $this->_uploaderFactory->create(['fileId' => 'bar']);
             
             $uploader->setAllowedExtensions(['jpg', 'jpeg']);
             $uploader->setAllowCreateFolders(true);

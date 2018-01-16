@@ -11,7 +11,7 @@ class NewAction extends \Magento\Backend\App\Action
     protected $_uploaderFactory;
 
     public function __construct(
-        \Magento\Framework\App\Action\Context $context,
+        \Magento\Backend\App\Action\Context $context,
         \Magento\Framework\Filesystem $fileSystem,
         \Magento\MediaStorage\Model\File\UploaderFactory $uploaderFactory)
     {

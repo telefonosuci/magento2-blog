@@ -125,6 +125,19 @@
             </argument>
         </field>    
 
+        <field name="bar">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Sound Check</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="formElement" xsi:type="string">fileUploader</item>
+                    <item name="uploaderConfig" xsi:type="array">
+                        <item name="url" xsi:type="url" path="blog_admin/file/upload"/>
+                    </item>
+                </item>
+            </argument>
+        </field>
+
         <field name="body">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
