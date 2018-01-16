@@ -95,6 +95,7 @@
             </argument>
         </field>
 
+<!--
         <field name="image">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -107,15 +108,15 @@
                 </item>
             </argument>
         </field>
-
-        <field name="image">
+-->
+        <field name="postimage">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="label" xsi:type="string" translate="true">Showcase Image</item>
-                    <item name="formElement" xsi:type="string">fileUploader</item>
+                    <item name="formElement" xsi:type="string">file</item>
                     <item name="componentType" xsi:type="string">fileUploader</item>
                     <item name="notice" xsi:type="string" translate="true">Allowed file types: jpg, jpeg. Not all browsers support all these formats!</item>
-                    <item name="maxFileSize" xsi:type="number">2097152</item>
+                    
                     <item name="allowedExtensions" xsi:type="string">jpg jpeg</item>
                     <item name="uploaderConfig" xsi:type="array">
                         <item name="url" xsi:type="string">blog_admin/file/upload</item>

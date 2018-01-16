@@ -3,6 +3,7 @@
 namespace ThinkOpen\Blog\Controller\Adminhtml\Post;
 use Magento\Backend\App\Action;
 use ThinkOpen\Blog\Model\Post as Post;
+use Magento\Framework\App\Filesystem\DirectoryList;
 
 class NewAction extends \Magento\Backend\App\Action
 {
@@ -17,17 +18,39 @@ class NewAction extends \Magento\Backend\App\Action
         $this->_view->loadLayout();
         $this->_view->renderLayout();
 
-        $contactDatas = $this->getRequest()->getParam('post');
-        if(is_array($contactDatas)) {
+        $postData = $this->getRequest()->getParam('post');
+        
+        if(is_array($postData)) {
             
             $post = $this->_objectManager->create(Post::class);
             
             $creationDate = date("Y-m-d H:i:s");
-            $post->setCreationDate($creationDate);
-            $post->setData($contactDatas)->save();
+            
+            $post->setCreationdate($creationDate);
+
+            $uploader = $this->_uploaderFactory->create(['fileId' => 'postimage'])
+            ->setAllowedExtensions(['jpg', 'jpeg'])
+            ->setAllowCreateFolders(true);
+    
+            $uploadResult = $uploader->save($destinationPath);
+
+            $post->setImage("/pub/media/".$uploadResult['file']);
+
+            $post->setData($postData)->save();
 
             $resultRedirect = $this->resultRedirectFactory->create();
             return $resultRedirect->setPath('*/*/grid');
         }
+    }
+
+    public function validateFile($filePath)
+    {
+        // @todo
+        // your custom validation code here
+    }
+
+    public function getDestinationPath()
+    {
+        return $this->_fileSystem->getDirectoryRead(DirectoryList::MEDIA)->getAbsolutePath('/images');
     }
 }

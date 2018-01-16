@@ -7,7 +7,8 @@ class Upload extends \Magento\Framework\App\Action\Action
 {
     
     protected $_filesystem;
- 
+    protected $_uploaderFactory;
+
     public function __construct(
         \Magento\Framework\App\Action\Context $context,
         \Magento\Framework\Filesystem $fileSystem,
@@ -51,10 +52,11 @@ class Upload extends \Magento\Framework\App\Action\Action
         $destinationPath = $this->getDestinationPath();
         try {
 
-            $uploader = $this->_uploaderFactory->create(['fileId' => 'image'])
-            ->setAllowedExtensions(['jpg', 'jpeg'])
-            ->setAllowCreateFolders(true)
-            ->addValidateCallback('validate', $this, 'validateFile');
+            $uploader = $this->_uploaderFactory->create(['fileId' => 'postimage']);
+            
+            $uploader->setAllowedExtensions(['jpg', 'jpeg']);
+            $uploader->setAllowCreateFolders(true);
+            $uploader->setAllowRenameFiles(true);
 
             $uploadResult = $uploader->save($destinationPath);
 

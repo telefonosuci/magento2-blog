@@ -35,7 +35,7 @@ class Save extends \Magento\Framework\App\Action\Action
         $description = $this->getRequest()->getParam('description');
         $tags = $this->getRequest()->getParam('tags');
         $body = $this->getRequest()->getParam('body');
-
+        //$creationDate = date('Y-m-d H:i:s');
         $tagsArray = array_unique(array_map("trim", explode(",", $tags)));
         $tagsJson = json_encode($tagsArray);
         
@@ -60,6 +60,7 @@ class Save extends \Magento\Framework\App\Action\Action
 
         $post->setTitle($title);
         $post->setDescription($description);
+        //$post->setCreationdate($creationDate);
         $post->setTags($tagsJson);
         $post->setBody($body);
         
