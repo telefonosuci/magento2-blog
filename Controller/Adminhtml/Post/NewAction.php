@@ -37,20 +37,21 @@ class NewAction extends \Magento\Backend\App\Action
         if(is_array($postData)) {
             
             $post = $this->_objectManager->create(Post::class);
-            
+            $post->setData($postData);
+
             $creationDate = date("Y-m-d H:i:s");
-            
             $post->setCreationdate($creationDate);
 
-            $uploader = $this->_uploaderFactory->create(['fileId' => 'postimage'])
+            $uploader = $this->_uploaderFactory->create(['fileId' => 'post[postimage]'])
             ->setAllowedExtensions(['jpg', 'jpeg'])
             ->setAllowCreateFolders(true);
-    
+
+            $destinationPath = $this->getDestinationPath();
             $uploadResult = $uploader->save($destinationPath);
 
             $post->setImage("/pub/media/".$uploadResult['file']);
 
-            $post->setData($postData)->save();
+            $post->save();
 
             $resultRedirect = $this->resultRedirectFactory->create();
             return $resultRedirect->setPath('*/*/grid');

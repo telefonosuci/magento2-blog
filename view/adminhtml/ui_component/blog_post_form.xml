@@ -23,7 +23,7 @@
     
     </argument>
 
-    <dataSource name="contacts_form_data_source">
+    <dataSource name="blog_post_form_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">ThinkOpen\Blog\Model\ResourceModel\Post\PostDataProvider</argument>
             <argument name="name" xsi:type="string">blog_post_form_data_source</argument>
@@ -37,6 +37,29 @@
         </argument>
     </dataSource>
 
+<!--
+    <fieldset name="foo">
+        
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string"/>
+                </item>
+            </argument>
+
+            <field name="bar">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="label" xsi:type="string">Sound Check 2</item>
+                        <item name="visible" xsi:type="boolean">true</item>
+                        <item name="formElement" xsi:type="string">fileUploader</item>
+                        <item name="uploaderConfig" xsi:type="array">
+                            <item name="url" xsi:type="url" path="blog_admin/file/upload"/>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+    </fieldset>
+-->
     <fieldset name="post">
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
@@ -95,20 +118,6 @@
             </argument>
         </field>
 
-<!--
-        <field name="image">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="label" xsi:type="string" translate="true">Image</item>
-                    <item name="visible" xsi:type="boolean">true</item>
-                    <item name="formElement" xsi:type="string">fileUploader</item>
-                    <item name="uploaderConfig" xsi:type="array">
-                        <item name="url" xsi:type="url" path="blog_admin/upload"/>
-                    </item>   
-                </item>
-            </argument>
-        </field>
--->
         <field name="postimage">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -124,19 +133,29 @@
                 </item>
             </argument>
         </field>    
-
-        <field name="bar">
+<!--
+        <field name="image">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
+
+
                     <item name="label" xsi:type="string">Sound Check</item>
                     <item name="visible" xsi:type="boolean">true</item>
+
                     <item name="formElement" xsi:type="string">fileUploader</item>
+                    <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
+            
+
                     <item name="uploaderConfig" xsi:type="array">
                         <item name="url" xsi:type="url" path="blog_admin/file/upload"/>
                     </item>
                 </item>
             </argument>
         </field>
+
+ -->       
+
+        
 
         <field name="body">
             <argument name="data" xsi:type="array">
@@ -152,4 +171,7 @@
         </field>
 
     </fieldset>
+
+    
+
 </form>

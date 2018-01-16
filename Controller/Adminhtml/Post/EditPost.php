@@ -64,7 +64,7 @@ class EditPost extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-        $id = $this->getRequest()->getParam('post_id');
+        $id = $this->getRequest()->getParam('id');
         $model = $this->_objectManager->create('ThinkOpen\Blog\Model\Post');
 
         if ($id) {

@@ -53,8 +53,8 @@ class Upload extends \Magento\Framework\App\Action\Action
         try {
 
 
-            $file = $_FILES['bar'];
-            $uploader = $this->_uploaderFactory->create(['fileId' => 'bar']);
+            
+            $uploader = $this->_uploaderFactory->create(['fileId' => 'post[bar]']);
             
             $uploader->setAllowedExtensions(['jpg', 'jpeg']);
             $uploader->setAllowCreateFolders(true);
