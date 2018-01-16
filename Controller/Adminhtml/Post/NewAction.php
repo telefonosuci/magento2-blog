@@ -7,6 +7,20 @@ use Magento\Framework\App\Filesystem\DirectoryList;
 
 class NewAction extends \Magento\Backend\App\Action
 {
+    protected $_fileSystem;
+    protected $_uploaderFactory;
+
+    public function __construct(
+        \Magento\Framework\App\Action\Context $context,
+        \Magento\Framework\Filesystem $fileSystem,
+        \Magento\MediaStorage\Model\File\UploaderFactory $uploaderFactory)
+    {
+        $this->_fileSystem = $fileSystem;
+        $this->_uploaderFactory = $uploaderFactory;
+
+        parent::__construct($context);
+    }
+    
     /**
      * Edit A Contact Page
      *
