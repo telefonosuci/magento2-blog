@@ -61,7 +61,7 @@ class NewAction extends \Magento\Backend\App\Action
                 $destinationPath = $this->getDestinationPath();
                 $uploadResult = $uploader->save($destinationPath);
 
-                $post->setImage("/pub/media/".$uploadResult['file']);
+                $post->setImage("/pub/media/images/".$uploadResult['file']);
 
             }catch(\Exception $e){
                 
