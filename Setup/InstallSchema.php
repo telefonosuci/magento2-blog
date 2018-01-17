@@ -1,6 +1,6 @@
 <?php
 
-namespace Mageplaza\HelloWorld\Setup;
+namespace ThinkOpen\Blog\Setup;
 
 class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
 {
@@ -10,15 +10,16 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
         \Magento\Framework\Setup\ModuleContextInterface $context)
     {
 
-        /*
+        
         $installer = $setup;
         $installer->startSetup();
-        if (!$installer->tableExists('mageplaza_helloworld_post')) {
+        
+        if (!$installer->tableExists('thinkopen_blog_post')) {
             $table = $installer->getConnection()->newTable(
-                $installer->getTable('mageplaza_helloworld_post')
+                $installer->getTable('thinkopen_blog_post')
             )
                 ->addColumn(
-                    'post_id',
+                    'id',
                     \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
                     null,
                     [
@@ -30,25 +31,25 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
                     'Post ID'
                 )
                 ->addColumn(
-                    'name',
+                    'title',
                     \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
                     255,
                     ['nullable => false'],
                     'Post Name'
                 )
                 ->addColumn(
-                    'url_key',
+                    'descritption',
                     \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
                     255,
                     [],
-                    'Post URL Key'
+                    'Post Description'
                 )
                 ->addColumn(
-                    'post_content',
+                    'body',
                     \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
                     '64k',
                     [],
-                    'Post Post Content'
+                    'Post Content'
                 )
                 ->addColumn(
                     'tags',
@@ -58,48 +59,50 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
                     'Post Tags'
                 )
                 ->addColumn(
-                    'status',
+                    'isactive',
                     \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
                     1,
                     [],
                     'Post Status'
                 )
                 ->addColumn(
-                    'featured_image',
+                    'image',
                     \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
                     255,
                     [],
                     'Post Featured Image'
                 )
                 ->addColumn(
-                    'created_at',
+                    'creationdate',
                     \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
                     null,
                     ['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT],
                     'Created At'
                 )->addColumn(
-                    'updated_at',
+                    'lasteditdate',
                     \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
                     null,
                     ['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT_UPDATE],
                     'Updated At')
                 ->setComment('Post Table');
+
             $installer->getConnection()->createTable($table);
 
             $installer->getConnection()->addIndex(
-                $installer->getTable('mageplaza_helloworld_post'),
+                $installer->getTable('thinkopen_blog_post'),
                 $setup->getIdxName(
-                    $installer->getTable('mageplaza_helloworld_post'),
-                    ['name','url_key','post_content','tags','featured_image'],
+                    $installer->getTable('thinkopen_blog_post'),
+                    ['name','description','body','tags','image'],
                     \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
                 ),
-                ['name','url_key','post_content','tags','featured_image'],
+                ['name','description','body','tags','image'],
                 \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
             );
         }
+
         $installer->endSetup();
 
-        */
+    
     }
 }
 

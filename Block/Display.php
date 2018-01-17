@@ -14,7 +14,12 @@ class Display extends \Magento\Framework\View\Element\Template
     public function getPostCollection()
     {
         $post = $this->_postFactory->create();
-		$collection = $post->getCollection();
+		$collection = $post->getCollection()->addFieldToFilter(
+            array('isactive'),
+            array(
+                array('like'=>1)
+            )
+        );
 
         return $collection;
         
