@@ -140,15 +140,15 @@
 
 
         <massaction name="listing_massaction">
-      
+<!--
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="selectProvider" xsi:type="string">blog_post_listing.blog_post_listing_datasource.data_columns.ids</item>
+                    <item name="selectProvider" xsi:type="string">blog_post_listing.data_columns.ids</item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>
-                    <item name="indexField" xsi:type="string">id</item>
+                    <item name="indexField" xsi:type="string">ids</item>
                 </item>
             </argument>
-
+-->
             <action name="delete">
                 <argument name="data" xsi:type="array">
                     <item name="config" xsi:type="array">
