@@ -3,7 +3,7 @@ namespace ThinkOpen\Blog\Controller\Adminhtml\Post;
 
 use Magento\Backend\App\Action\Context;
 use Magento\Ui\Component\MassAction\Filter;
-use ThinkOpen\Blog\Model\ResourceModel\Post\CollectionFactory;
+use ThinkOpen\Blog\Model\ResourceModel\Grid\CollectionFactory;
 use Magento\Framework\Controller\ResultFactory;
 
 /**

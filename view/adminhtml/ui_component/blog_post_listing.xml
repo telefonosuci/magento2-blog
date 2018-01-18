@@ -154,7 +154,8 @@
                     <item name="config" xsi:type="array">
                         <item name="type" xsi:type="string">delete</item>
                         <item name="label" xsi:type="string" translate="true">Delete</item>
-                        <item name="url" xsi:type="url" path="blog/post/massDelete"/>
+                        <item name="url" xsi:type="url" path="blog_admin/post/massDelete"/>
+
                         <item name="confirm" xsi:type="array">
                             <item name="title" xsi:type="string" translate="true">Delete items</item>
                             <item name="message" xsi:type="string" translate="true">Are you sure you wan't to delete selected items?</item>
