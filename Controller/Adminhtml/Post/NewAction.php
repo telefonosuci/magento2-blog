@@ -69,6 +69,8 @@ class NewAction extends \Magento\Backend\App\Action
             
             $post->save();
 
+            $this->messageManager->addSuccess(__('The record(s) have been edited.'));
+
             $resultRedirect = $this->resultRedirectFactory->create();
             return $resultRedirect->setPath('*/*/grid');
         }

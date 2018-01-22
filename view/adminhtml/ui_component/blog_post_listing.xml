@@ -274,19 +274,19 @@
                 </item>
             </argument>
         </column>
-<!--
-        <column name="creationdate">
+
+        <column name="isactive">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/column</item>
                     <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Creation date</item>
+                    <item name="label" xsi:type="string" translate="true">Active</item>
                     <item name="sortOrder" xsi:type="number">20</item>
                 </item>
             </argument>
         </column>
--->
+
         <column name="creationdate" class="Magento\Ui\Component\Listing\Columns\Date">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
