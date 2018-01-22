@@ -3,7 +3,7 @@ namespace ThinkOpen\Blog\Controller\Adminhtml\Post;
 
 use Magento\Backend\App\Action\Context;
 use Magento\Ui\Component\MassAction\Filter;
-use ThinkOpen\Blog\Model\ResourceModel\Grid\CollectionFactory;
+use ThinkOpen\Blog\Model\ResourceModel\Post\CollectionFactory;
 use Magento\Framework\Controller\ResultFactory;
 
 /**
@@ -52,6 +52,6 @@ class MassDelete  extends \Magento\Backend\App\Action
 
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
-        return $resultRedirect->setPath('*/*/');
+        return $resultRedirect->setPath('*/*/grid');
     }
 }

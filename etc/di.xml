@@ -19,23 +19,25 @@
     </virtualType>
 
     <virtualType name="ThinkOpen\Blog\Model\ResourceModel\Post\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+
         <arguments>
             <argument name="mainTable" xsi:type="string">thinkopen_blog_post</argument>
             <argument name="resourceModel" xsi:type="string">ThinkOpen\Blog\Model\ResourceModel\Post</argument>
             <argument name="eventPrefix" xsi:type="string">thinkopen_blog_post_collection</argument>
             <argument name="eventObject" xsi:type="string">post_collection</argument>
-
-
         </arguments>
+
     </virtualType>
 
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+
         <arguments>
             <argument name="collections" xsi:type="array">
                 <!-- data provider name which used in grid ui component file -->
                 <item name="blog_post_listing_datasource" xsi:type="string">ThinkOpen\Blog\Model\ResourceModel\Post\Grid\Collection</item>
             </argument>
         </arguments>
+
     </type>
 
 </config>
