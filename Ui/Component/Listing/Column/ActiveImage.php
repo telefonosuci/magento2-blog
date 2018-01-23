@@ -6,6 +6,7 @@ use Magento\Framework\Escaper;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
+use Magento\Framework\View\Asset\Repository;
 
 /**
  * Shows product name in admin grids instead of product id
@@ -28,6 +29,8 @@ class ActiveImage extends Column
 
     protected $productFactory;
 
+    protected $_assetRepo;
+
     /**
      * Constructor
      *
@@ -43,12 +46,14 @@ class ActiveImage extends Column
         UiComponentFactory $uiComponentFactory,
         Escaper $escaper,
         \Magento\Catalog\Model\ProductFactory $productFactory,
+        \Magento\Framework\View\Asset\Repository $assetRepo,
         array $components = [],
         array $data = []
     )
     {
         $this->productFactory = $productFactory;
         $this->escaper = $escaper;
+        $this->_assetRepo = $assetRepo;
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
 
@@ -62,19 +67,24 @@ class ActiveImage extends Column
     {
         if (isset($dataSource['data']['items'])) {
 
+            $fieldName = $this->getData('name');
+
             foreach ($dataSource['data']['items'] as & $item) {
 
-                if(isset($item['isactive'])){
+                if(isset($item[$fieldName])){
 
-                    if($item['isactive']==1){
-
-                        $item['isactive']="Attivo";
-
+                    if($item[$fieldName]==1){
+                        $url = $this->_assetRepo->getUrl("ThinkOpen_Blog::images/active.png");
                     }else{
-
-                        $item['isactive']="Disattivo";
+                        $url = $this->_assetRepo->getUrl("ThinkOpen_Blog::images/inactive.png");
                     }
+
+                    $item[$fieldName . '_src'] = $url;
+                    $item[$fieldName . '_alt'] = $this->getAlt($item) ?: '';
+                    $item[$fieldName . '_orig_src'] = $url;
+
                 }
+
             }
         }
 
