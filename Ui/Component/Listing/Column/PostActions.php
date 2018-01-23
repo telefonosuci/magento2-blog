@@ -51,13 +51,18 @@ class PostActions extends Column
     public function prepareDataSource(array $dataSource)
     {
         if (isset($dataSource['data']['items'])) {
+
             foreach ($dataSource['data']['items'] as & $item) {
+
                 $name = $this->getData('name');
+
                 if (isset($item['id'])) {
+
                     $item[$name]['edit'] = [
                         'href' => $this->urlBuilder->getUrl($this->editUrl, ['id' => $item['id']]),
                         'label' => __('Edit')
                     ];
+
                     $item[$name]['delete'] = [
                         'href' => $this->urlBuilder->getUrl(self::BLOG_URL_PATH_DELETE, ['id' => $item['id']]),
                         'label' => __('Delete'),
