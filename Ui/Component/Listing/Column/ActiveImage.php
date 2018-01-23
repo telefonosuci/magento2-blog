@@ -74,7 +74,7 @@ class ActiveImage extends Column
                 if(isset($item[$fieldName])){
 
                     if($item[$fieldName]==1){
-                        $url = $this->_assetRepo->getUrl("ThinkOpen_Blog::images/active.png");
+                        $url = $this->_assetRepo->getUrl("ThinkOpen_Blog::images/green_tick.png");
                     }else{
                         $url = $this->_assetRepo->getUrl("ThinkOpen_Blog::images/inactive.png");
                     }
